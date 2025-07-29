@@ -4,7 +4,6 @@ on:
   schedule:
     - cron: '0 6 * * 1'    # Runs every Monday at 06:00 UTC
   workflow_dispatch:      # Allows manual triggering
-
 jobs:
   export-schema:
     runs-on: ubuntu-latest
@@ -16,8 +15,8 @@ jobs:
     - name: Install dependencies
       run: pip install pyyaml
 
-    - name: Clone schema repo
-      run: git clone --depth 1 https://github.com/fleetdm/osquery-table-schema.git
+    - name: Clone fleet repo
+      run: git clone --depth 1 https://github.com/fleetdm/fleet.git
 
     - name: Generate CSV schema
       run: python convert.py
