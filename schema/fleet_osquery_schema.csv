@@ -1,1 +1,612 @@
 table_name,column_name,datatype,description
+pwd_policy,max_failed_attempts,integer,The account lockout threshold specifies the amount of times a user can enter an incorrect password before a lockout will occur. Ensure that a lockout threshold is part of the password policy on the computer.
+pwd_policy,expires_every_n_days,integer,How many days for a new password to expire.
+pwd_policy,days_to_expiration,integer,How many days are left for the expiration of the current password.
+pwd_policy,history_depth,integer,This parameter indicates the depth of password history which a new password can't be identical to.
+pwd_policy,min_mixed_case_characters,integer,This parameter indicates the minimum number of mixed characters in a password.
+lsblk,fullkey,text,"Flattened full key with '/' as separator, e.g. `blockdevices/15/min-io`."
+lsblk,parent,text,Parent key when keys are nested in the document.
+lsblk,key,text,JSON key or array index.
+lsblk,value,text,JSON value
+lsblk,query,text,"Specifies a query to flatten with. This is used both for re-writing arrays into maps, and for filtering."
+dconf_read,username,text,End user's username.
+dconf_read,key,text,Name of the configuration key to read.
+dconf_read,value,text,Value of the provided key.
+ssh_configs,uid,,
+apfs_volumes,container_uuid,text,The UUID of the APFS Contianer
+apfs_volumes,container_designated_physical_store,text,"The disk displayed as the backing store of the container. There may be multiple, use `apfs_physical_stores` to see all actual physical stores"
+apfs_volumes,container_reference,text,"The current reference for the APFS container, e.g. ""disk3"""
+apfs_volumes,container_fusion,text,"Whether this container is on a ""fusion drive"" (i.e. SSHD)"
+apfs_volumes,container_capacity_ceiling,bigint,The total amount of space in the container
+apfs_volumes,container_capacity_free,bigint,The amount of remaining free space in the container
+apfs_volumes,uuid,text,The UUID of the volume
+apfs_volumes,device_identifier,text,The current identifier of the volume (e.g. disk3s2)
+apfs_volumes,name,text,"The user-selected name of the volume (e.g. ""Macintosh HD"")"
+apfs_volumes,role,text,"The first role of the volume. User-created volumes will have no role (this will be empty). System volumes might have roles like ""Data"", ""Hardware"", etc."
+apfs_volumes,capacity_in_use,bigint,Storage space used by the volume
+apfs_volumes,capacity_quota,bigint,"Storage quota for the volume, or 0 if disabled"
+apfs_volumes,capacity_reserve,bigint,"Storage reserved for this volume even if contianer is otherwise full, or 0 if disabled"
+apfs_volumes,crypto_migration_on,integer,Whether the volume is in the process of being encrypted
+apfs_volumes,encryption,integer,"Whether the volume is encrypted, including without requiring a password"
+apfs_volumes,filevault,integer,Whether the volume requires a password to decrypt
+apfs_volumes,locked,integer,Whether the volume is unreadable because it does not have a key entered
+process_open_sockets,state,,
+process_open_sockets,net_namespace,,
+process_open_sockets,family,,"Network protocol (IPv4, IPv6). [Learn more](https://students.mimuw.edu.pl/SO/Linux/Kod/include/linux/socket.h.html)"
+user_ssh_keys,pid_with_namespace,,
+user_ssh_keys,uid,,
+routes,hopcount,,
+python_packages,pid_with_namespace,,
+find_cmd,directory,text,The directory passed to find as first argument.
+find_cmd,type,text,Sets the value of the `-type` flag.
+find_cmd,perm,text,Sets the value of the `-perm` flag.
+find_cmd,path,text,Contains the found paths.
+interface_addresses,friendly_name,,
+privacy_preferences,network_prediction_enabled,integer,1 if enabled else 0
+privacy_preferences,web_rtc_ip_handling_policy,text,"One of ""default"", ""default_public_and_private_interfaces"", ""default_public_interface_only"", or ""disable_non_proxied_udp"" * Available for Chrome 48+"
+privacy_preferences,autofill_address_enabled,integer,1 if enabled else 0
+privacy_preferences,autofill_credit_card_enabled,integer,1 if enabled else 0 * Available for Chrome 70+
+privacy_preferences,autofill_enabled,integer,"1 if enabled else 0 - * Deprecated since Chrome 70, please use privacy.services.autofillAddressEnabled and privacy.services.autofillCreditCardEnabled. This currently remains for backward compatibility and will be removed in the future."
+privacy_preferences,save_passwords_enabled,integer,1 if enabled else 0
+privacy_preferences,safe_browsing_enabled,integer,1 if enabled else 0
+privacy_preferences,safe_browsing_extended_reporting_enabled,integer,1 if enabled else 0
+privacy_preferences,search_suggest_enabled,integer,1 if enabled else 0
+privacy_preferences,spelling_service_enabled,integer,1 if enabled else 0
+privacy_preferences,translation_service_enabled,integer,1 if enabled else 0
+privacy_preferences,ad_measurement_enabled,integer,1 if enabled else 0
+privacy_preferences,do_not_track_enabled,integer,1 if enabled else 0
+privacy_preferences,fledge_enabled,integer,1 if enabled else 0 * Available for Chrome 111+
+privacy_preferences,hyperlink_auditing_enabled,integer,1 if enabled else 0
+privacy_preferences,privacy_sandbox_enabled,integer,"1 if enabled else 0 - * Available for Chrome 90+ Deprecated since Chrome 111, see https://developer.chrome.com/docs/extensions/reference/privacy/#property-websites-privacySandboxEnabled"
+privacy_preferences,protected_content_enabled,integer,1 if enabled else 0 - * Windows and ChromeOS only
+privacy_preferences,referrers_enabled,integer,1 if enabled else 0
+privacy_preferences,third_party_cookies_allowed,integer,1 if enabled else 0
+privacy_preferences,topics_enabled,integer,1 if enabled else 0 * Available for Chrome 111+
+icloud_private_relay,status,integer,whether iCloud Private Relay is on or off. 1 is on. 0 is off.
+parse_ini,path,text,Path of the file to read.
+parse_ini,fullkey,text,Key including any parent keys.
+parse_ini,parent,text,Parent key when keys are nested in the document.
+parse_ini,key,text,JSON key or array index.
+parse_ini,value,text,JSON value
+managed_policies,username,,Policy only applies to the listed user. Blank if global.
+managed_policies,domain,,System or manager-chosen domain key. Equivalent to a configuration profile's `PayloadType`
+suid_bin,pid_with_namespace,,
+cis_audit,item,text,"Contains the input CIS item to query. If empty, no CIS item is queried."
+cis_audit,value,text,Contains the value for the queried CIS item.
+software_update,software_update_required,integer,A value of 0 means no updates are available. Any other integer represents the number of updates available.
+nftables,fullkey,text,"Flattened full key with '/' as separator, e.g. `nftables/0/metainfo/json_schema_version`."
+nftables,parent,text,Parent key when keys are nested in the document.
+nftables,key,text,JSON key or array index.
+nftables,value,text,JSON value
+nftables,query,text,"Specifies a query to flatten with. This is used both for re-writing arrays into maps, and for filtering."
+crontab,pid_with_namespace,,
+docker_containers,cgroup_namespace,,
+docker_containers,ipc_namespace,,
+docker_containers,mnt_namespace,,
+docker_containers,net_namespace,,
+docker_containers,pid_namespace,,
+docker_containers,privileged,,Is the container [privileged](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)
+docker_containers,user_namespace,,
+docker_containers,uts_namespace,,
+parse_json,path,text,Path of the file to read.
+parse_json,fullkey,text,Same as `key` in this table. See `parse_jsonl` where multiple JSON documents are supported.
+parse_json,parent,text,Parent key when keys are nested in the document.
+parse_json,key,text,JSON key or array index.
+parse_json,value,text,JSON value
+app_icons,path,text,The icon's path.
+app_icons,icon,text,The icon.
+app_icons,hash,text,The icon's hash.
+certificates,sid,,
+certificates,store_location,,
+certificates,store,,
+certificates,username,,
+certificates,store_id,,
+certificates,issuer2,,
+certificates,subject2,,
+process_file_events,operation,text,Operation type
+process_file_events,pid,bigint,Process ID
+process_file_events,ppid,bigint,Parent process ID
+process_file_events,time,bigint,Time of execution in UNIX time
+process_file_events,executable,text,The executable path
+process_file_events,partial,text,True if this is a partial event (i.e.: this process existed before we started osquery)
+process_file_events,cwd,text,The current working directory of the process
+process_file_events,path,text,The path associated with the event
+process_file_events,dest_path,text,The canonical path associated with the event
+process_file_events,uid,text,The uid of the process performing the action
+process_file_events,gid,text,The gid of the process performing the action
+process_file_events,auid,text,Audit user ID of the process using the file
+process_file_events,euid,text,Effective user ID of the process using the file
+process_file_events,egid,text,Effective group ID of the process using the file
+process_file_events,fsuid,text,Filesystem user ID of the process using the file
+process_file_events,fsgid,text,Filesystem group ID of the process using the file
+process_file_events,suid,text,Saved user ID of the process using the file
+process_file_events,sgid,text,Saved group ID of the process using the file
+process_file_events,uptime,bigint,Time of execution in system uptime
+process_file_events,eid,text,Event ID
+parse_jsonl,path,text,Path of the file to read.
+parse_jsonl,fullkey,text,Key including any parent keys or document indices.
+parse_jsonl,parent,text,Parent key when keys are nested in the document.
+parse_jsonl,key,text,INI key
+parse_jsonl,value,text,INI value
+corestorage_logical_volume_families,vg_UUID,text,The unique identifier of the containing volume group
+corestorage_logical_volume_families,vg_Version,integer,"The version of the volume group, probably 1"
+corestorage_logical_volume_families,vg_FreeSpace,bigint,"Amount of space, in bytes, in the volume group that have not been allocated by any logical volume"
+corestorage_logical_volume_families,vg_FusionDrive,integer,"Whether the volume group is a ""fusion drive"" (i.e. SSHD)"
+corestorage_logical_volume_families,vg_Name,text,The customizable name of the volume group
+corestorage_logical_volume_families,vg_Sequence,bigint,Current sequence number of the volume group
+corestorage_logical_volume_families,vg_Size,bigint,Total (i.e. either allocated or unallocated) size of the volume group
+corestorage_logical_volume_families,vg_Sparse,integer,Whether the volume group allows overcommitting storage
+corestorage_logical_volume_families,vg_Status,text,"Status of the volume group, e.g. ""Online"""
+corestorage_logical_volume_families,UUID,text,Unique ID of the logical volume family
+corestorage_logical_volume_families,EncryptionStatus,text,"Unlock status of the logical volume family, e.g. ""Locked"" or ""Unlocked"""
+corestorage_logical_volume_families,EncryptionType,text,"Encryption algorithm for the logical volume family, normally ""AES-XTS"" or ""None"""
+corestorage_logical_volume_families,HasVisibleUsers,integer,Undocumented field returned from `diskutil cs info`
+corestorage_logical_volume_families,HasVolumeKey,integer,Whether there is an encryption key assigned for the logical volume
+corestorage_logical_volume_families,IsAcceptingNewUsers,integer,Whether new users may be granted access to the logical volume family encryption key
+corestorage_logical_volume_families,IsFullySecure,integer,Undocumented field returned from `diskutil cs info`
+corestorage_logical_volume_families,MayHaveEncryptedEvents,integer,Undocumented field returned from `diskutil cs info`
+corestorage_logical_volume_families,RequiresPasswordUnlock,integer,Whether a password is currently required to unlock the volume
+puppet_state,title,text,The name of the resource.
+puppet_state,file,text,The file that contains the resource.
+puppet_state,line,text,The line on which the resource is specified.
+puppet_state,resource,text,The resource and its title as `Type[title]`.
+puppet_state,resource_type,text,The resource type.
+puppet_state,evaluation_time,text,The amount of seconds it took to evaluate the resource.
+puppet_state,failed,text,"If Puppet failed to evaluate this resource, this column is `true`."
+puppet_state,changed,text,"If `change_count` is above `0`, this is `true`."
+puppet_state,out_of_sync,text,"If `out_of_sync_count` is above `0`, this is `true`."
+puppet_state,skipped,text,True if this resource was skipped.
+puppet_state,change_count,text,The count of changes to be performed.
+puppet_state,out_of_sync_count,text,The number of properties that are out of sync
+puppet_state,corrective_change,text,True if a change on the system caused unexpected changes between two Puppet runs.
+rpm_packages,pid_with_namespace,,
+rpm_packages,mount_namespace_id,,
+google_chrome_profiles,email,text,"Email address linked to the Google account this profile uses, if any."
+google_chrome_profiles,ephemeral,boolean,Boolean indicating if the profile is ephemeral or not.
+google_chrome_profiles,name,text,Name of the Chrome profile.
+google_chrome_profiles,username,text,Operating system level username of the account where this profile is located.
+codesign,path,text,Path is the absolute path to the app folder.
+codesign,team_identifier,text,Unique 10-character string generated by Apple that's assigned to a developer account to sign packages. This value is empty on unsigned applications and built-in Apple applications.
+codesign,cdhash_sha256,text,cdhash_sha256 is the SHA256 hash returned by codesign of the code directory for the macOS app or executable. It is a unique identifier for the code signature of the app.
+nvram_info,amfi_enabled,integer,"Apple Mobile File Integrity (AMFI) was first released in macOS 10.12. The daemon and service block attempts to run unsigned code. AMFI uses lanchd, code signatures, certificates, entitlements, and provisioning profiles to create a filtered entitlement dictionary for an app. AMFI is the macOS kernel module that enforces code-signing and library validation. Note: AMFI cannot be disabled with SIP enabled, but a change attempt can be made that will appear successful, and report incorrectly as successful. If the AMFI audit fails, and the SIP audit passes, this is still an issue the admin should research."
+xprotect_meta,identifier,,Browser extension or plugin [identifier](https://fleetdm.com/tables/safari_extensions)
+xprotect_meta,min_version,,"The minimum allowed plugin version, or 'any' if no version is allowed."
+deb_packages,pid_with_namespace,,
+deb_packages,mount_namespace_id,,
+chrome_extensions,uid,,
+chrome_extensions,profile,,
+chrome_extensions,profile_path,,
+chrome_extensions,referenced_identifier,,
+chrome_extensions,default_locale,,
+chrome_extensions,current_locale,,
+chrome_extensions,author,,
+chrome_extensions,persistent,,
+chrome_extensions,path,text,Path to extension folder. Defaults to '' on ChromeOS
+chrome_extensions,optional_permissions,,
+chrome_extensions,optional_permissions_json,,
+chrome_extensions,manifest_hash,,
+chrome_extensions,referenced,,
+chrome_extensions,from_webstore,,
+chrome_extensions,state,text,
+chrome_extensions,install_time,,
+chrome_extensions,install_timestamp,,
+chrome_extensions,manifest_json,,
+chrome_extensions,key,,
+crashes,uid,,
+shell_history,uid,,
+falcon_kernel_check,kernel,text,Version of the host's kernel.
+falcon_kernel_check,supported,text,Whether or not the host's kernel supports the Crowdstrike Falcon sensor version.
+falcon_kernel_check,sensor_version,text,Version of the Crowdstrike Falcon's sensor.
+cryptsetup_status,name,text,The name of the drive.
+cryptsetup_status,key,text,A specific item that describes the drive.
+cryptsetup_status,value,text,The value for the specified key.
+cryptsetup_status,fullkey,text,The expanded name of the specific item that describes the drive.
+cryptsetup_status,parent,text,The key's parent.
+cryptsetup_status,query,text,"The query is printed in this column. For example the SQL `SELECT * FROM cryuptsetup_status WHERE name = 'LUKS_DRIVE'` will print ""*"" in the query column."
+firefox_addons,uid,,
+orbit_info,version,text,Version of the orbit instance.
+orbit_info,device_auth_token,text,Current Fleet Desktop token in the instance.
+orbit_info,enrolled,text,Returns whether the Orbit instance is enrolled to Fleet (true/false).
+orbit_info,last_recorded_error,text,Last recorded error in Orbit.
+orbit_info,orbit_channel,text,The Update Framework update channel used for the orbit executable.
+orbit_info,osqueryd_channel,text,The Update Framework update channel used for the osqueryd executable.
+orbit_info,desktop_channel,text,The Update Framework update channel used for the Fleet Desktop executable.
+orbit_info,desktop_version,text,The version of the fleet-desktop instance. Blank if fleet-desktop is not installed.
+orbit_info,uptime,bigint,Uptime of the orbit process in seconds.
+orbit_info,scripts_enabled,integer,"1 if running scripts is enabled, 0 if disabled."
+orbit_info,update_url,text,The Update Framework server URL.
+hash,pid_with_namespace,,
+hash,mount_namespace_id,,
+safari_extensions,uid,,
+apfs_physical_stores,container_uuid,text,The UUID of the APFS Contianer
+apfs_physical_stores,container_designated_physical_store,text,"The disk displayed as the backing store of the container. There may be multiple, use `apfs_physical_stores` to see all actual physical stores"
+apfs_physical_stores,container_reference,text,"The current reference for the APFS container, e.g. ""disk3"""
+apfs_physical_stores,container_fusion,text,"Whether this container is on a ""fusion drive"" (i.e. SSHD)"
+apfs_physical_stores,container_capacity_ceiling,bigint,The total amount of space in the container
+apfs_physical_stores,container_capacity_free,bigint,The amount of remaining free space in the container
+apfs_physical_stores,uuid,text,The UUID of the physical store
+apfs_physical_stores,identifier,text,The current identifier of the physical store (e.g. disk1s2)
+apfs_physical_stores,size,bigint,The size of the physical store in byptes
+mdm,access_rights,integer,The access rights of the payload. The resulting number is the total of every [AccessRight](https://developer.apple.com/documentation/devicemanagement/mdm) added up.
+mdm,checkin_url,text,"The URL the Mac checks in with, which should point to your MDM server."
+mdm,dep_capable,text,"Indicates if the computer is DEP capable or not, even if it is not currently enrolled into MDM."
+mdm,enrolled,text,Indicates if the computer is enrolled into MDM.
+mdm,has_scep_payload,text,Indicates if the computer has a certificate used by the MDM server to authenticate it.
+mdm,identity_certificate_uuid,text,The [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) of the [SCEP](https://en.wikipedia.org/wiki/Simple_Certificate_Enrollment_Protocol) certificate.
+mdm,install_date,text,The date on which the MDM payload was installed on the Mac.
+mdm,installed_from_dep,text,Indicates if the MDM payload was installed via DEP or not.
+mdm,payload_identifier,text,The identifier of the MDM payload.
+mdm,server_url,text,The URL of the MDM server used by this computer.
+mdm,sign_message,text,Indicates if messages sent and received from the MDM server must be signed.
+mdm,topic,text,The topic MDM listens to for push notifications.
+mdm,user_approved,text,Indicates if this MDM payload was approved by the user.
+filevault_status,status,text,FileVault status.
+system_controls,field_name,,
+account_policy_data,uid,BIGINT,[User ID](https://superuser.com/a/1108201)
+keychain_items,created,,Date item was created
+bitlocker_key_protectors,drive_letter,text,The drive letter of the volume.
+bitlocker_key_protectors,key_protector_type,integer,An unsigned integer that specifies the type of key protector. See https://learn.microsoft.com/en-us/windows/win32/secprov/getkeyprotectors-win32-encryptablevolume#parameters for a list of possible values. 
+containerd_containers,namespace,text,Namespace of the container.
+containerd_containers,id,text,Container ID.
+containerd_containers,image,text,Image name.
+containerd_containers,image_digest,text,Image digest (SHA256).
+containerd_containers,state,text,"Container state (e.g. running, stopped)."
+containerd_containers,created,integer,Unix timestamp of when the container was created.
+containerd_containers,runtime,text,Name of the container runtime (e.g. io.containerd.runc.v2).
+containerd_containers,command,text,Command used to start the container.
+containerd_containers,pid,integer,PID of the container process.
+puppet_info,cached_catalog_status,text,The status of Puppet catalogs cached on the system.
+puppet_info,catalog_uuid,text,The [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) of the catalog downloaded by Puppet.
+puppet_info,code_id,text,The `code_id` links the catalog with the compile-time version of file resources using the `puppet:///` URI.
+puppet_info,configuration_version,text,The version of the Puppet configuration.
+puppet_info,corrective_change,text,A corrective change is triggered when Puppet detects a discrepency between the current state and the expected state of a value.
+puppet_info,environment,text,The environment name.
+puppet_info,host,text,The host on which Puppet is used.
+puppet_info,kind,text,Kind of Puppet run.
+puppet_info,master_used,text,The Puppet server used.
+puppet_info,noop,text,Indicates if Puppet was run in [noop](https://puppet.com/docs/puppet/latest/metaparameter.html#noop) mode.
+puppet_info,noop_pending,text,Items pending from a [noop](https://puppet.com/docs/puppet/latest/metaparameter.html#noop) run.
+puppet_info,puppet_version,text,The version of Puppet used during the last run.
+puppet_info,report_format,text,The format the Puppet report was exported as.
+puppet_info,status,text,The status of Puppet on this system.
+puppet_info,time,text,The time of the last Puppet run.
+puppet_info,transaction_completed,text,Indicates if the transaction completed or not.
+puppet_info,transaction_uuid,text,The [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) of the transaction.
+falconctl_options,options,text,"The falconctl options to run. Supported values are listed here: `--aid`, `--apd`,`--aph`, `--app`, `--cid`, `--feature`, `--metadata-query`, `--rfm-reason`,`--rfm-state`, `--tags`, `--version`"
+yum_sources,pid_with_namespace,,
+sofa_security_release_info,update_name,text,"The name of the release, like ""macOS Sonoma 14.4.1"""
+sofa_security_release_info,product_version,text,"The version corresponding to this security release, like ""14.4.1"""
+sofa_security_release_info,release_date,text,The date the release was made available
+sofa_security_release_info,security_info,text,The URL to the information for this release
+sofa_security_release_info,unique_cves_count,integer,The number of unique CVEs addressed in this release
+sofa_security_release_info,days_since_previous_release,integer,The number of days since the previous (older) release
+sofa_security_release_info,os_version,text,"If not specified, this is the version of the operating system that the device is running"
+chrome_extension_content_scripts,uid,,
+app_sso_platform,extension_identifier,text,"Extension identifier of the Platform SSO extension (e.g. ""com.microsoft.CompanyPortalMac.ssoextension"")."
+app_sso_platform,realm,text,"Realm of the user that logged via Platform SSO (e.g. ""KERBEROS.MICROSOFTONLINE.COM"")."
+app_sso_platform,device_id,text,"Device ID extracted from ""Device Configuration"" -> ""deviceSigningCertificate"" -> Subject -> CommonName."
+app_sso_platform,user_principal_name,text,User principal name of the user that logged in via Platform SSO.
+cryptsetup_luks_salt,device,text,"The device path used for querying the LUKS metadata, e.g. `/dev/vda3`"
+cryptsetup_luks_salt,key_slot,text,A 'key slot' that indicates where in the LUKS metadata header the user key is stored.
+cryptsetup_luks_salt,salt,text,Salt used during the encryption process of the LUKS user key.
+groups,group_sid,,
+groups,comment,,
+groups,is_hidden,,
+groups,pid_with_namespace,,
+etc_hosts,pid_with_namespace,,
+vscode_extensions,name,text,Extension Name
+vscode_extensions,uuid,text,Extension UUID
+vscode_extensions,version,text,Extension version
+vscode_extensions,path,text,Extension path
+vscode_extensions,publisher,text,Publisher Name
+vscode_extensions,publisher_id,text,Publisher ID
+vscode_extensions,installed_at,bigint,Installed Timestamp
+vscode_extensions,prerelease,integer,Pre release version
+vscode_extensions,uid,bigint,The local user that owns the plugin
+apt_sources,pid_with_namespace,,
+file,attributes,,
+file,volume_serial,,
+file,file_id,,
+file,file_version,,
+file,product_version,,
+file,original_filename,,
+file,bsd_flags,,
+file,pid_with_namespace,,
+file,mount_namespace_id,,
+csrutil_info,ssv_enabled,integer,"Sealed System Volume is a security feature introduced in macOS 11.0 Big Sur. During system installation, a SHA-256 cryptographic hash is calculated for all immutable system files and stored in a Merkle tree which itself is hashed as the Seal. Both are stored in the metadata of the snapshot created of the System volume. The seal is verified by the boot loader at startup. macOS will not boot if system files have been tampered with. If validation fails, the user will be instructed to reinstall the operating system. During read operations for files located in the Sealed System Volume, a hash is calculated and compared to the value stored in the Merkle tree."
+file_lines,path,text,Path of the file to read.
+file_lines,line,text,"Output of the file, line by line."
+tcc_access,source,text,"Either ""user"" or ""system""."
+tcc_access,uid,integer,The local user the permissions are for.  `0` for the system (root) user.
+tcc_access,service,text,The name of the TCC service.
+tcc_access,client,text,The bundle identifier or absolute path to the program using the TCC service.
+tcc_access,client_type,integer,Indicates whether client is a bundle identifier (0) or absolute path (1).
+tcc_access,auth_value,integer,"Indicates whether the access is: denied (0), unknown (1), allowed (2), or limited (3)."
+tcc_access,auth_reason,integer,TODO
+tcc_access,last_modified,bigint,"The last time the entry was modified, in epoch seconds."
+tcc_access,policy_id,integer,The MDM policy that allows TCC access for the application.
+tcc_access,indirect_object_identifier,text,"For kTCCServiceAppleEvents, what the client is asking to interact with, or ""UNUSED"" when it doesn't apply. Absolute path or bundle identifier."
+tcc_access,indirect_object_identifier_type,integer,"Indicates whether indirect_object_identifier is a bundle identifier (0) or absolute path (1), if applicable."
+parse_xml,path,text,Path of the file to read.
+parse_xml,fullkey,text,Key including any parent keys.
+parse_xml,parent,text,Parent key when keys are nested in the document.
+parse_xml,key,text,XML key
+parse_xml,value,text,XML value
+macos_user_profiles,description,text,The description of the profile.
+macos_user_profiles,display_name,text,The display name of the profile.
+macos_user_profiles,identifier,text,The identifier of the profile.
+macos_user_profiles,install_date,text,Date and time at which the profile was installed.
+macos_user_profiles,organization,text,The profile's organization value.
+macos_user_profiles,type,text,The type of profile.
+macos_user_profiles,uuid,text,The [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) of the profile.
+macos_user_profiles,verification_state,text,The verification state of the profile.
+macos_user_profiles,username,text,The username for which the profile is installed.
+windows_updates,locale,text,Location of the update.
+windows_updates,is_default,text,Whether or not the update is the default.
+windows_updates,key,text,A specific item that describes the update.
+windows_updates,value,text,The value for the specified key.
+windows_updates,fullkey,text,The expanded name of the specific item that describes the update.
+windows_updates,parent,text,The key's parent.
+windows_updates,query,text,The query is printed in this column.
+macos_rsr,full_macos_version,text,Full macOS version string (including the RSR suffix)
+macos_rsr,macos_version,text,The macOS version string (excluding the RSR suffix)
+macos_rsr,rsr_supported,text,Whether this macOS version supports RSRs (>= 13). Possible values are 'true' or 'false'.
+macos_rsr,rsr_version,text,RSR version string suffix (with parenthesis included)
+sudo_info,json_result,text,A JSON document with the key value pairs parsed from `sudo -V` output.
+dscl,command,text,"The dscl command to execute, only ""read"" is currently supported."
+dscl,path,text,The path to use in the read command.
+dscl,key,text,The key to query on the read command and path.
+dscl,value,text,The value of the read path and key. The value is the empty string if the key doesn't exist.
+system_info,cpu_subtype,,
+system_info,cpu_physical_cores,,
+system_info,cpu_logical_cores,,
+system_info,cpu_microcode,,
+system_info,hardware_version,,
+system_info,board_vendor,,
+system_info,board_model,,
+system_info,board_version,,
+system_info,board_serial,,
+system_info,local_hostname,,
+system_info,hostname,text,"Network hostname including domain. For ChromeOS, this is only available if the extension was force-installed by an enterprise policy"
+system_info,computer_name,text,"Friendly computer name (optional). For ChromeOS, if the extension wasn't force-installed by an enterprise policy this will default to 'ChromeOS' only"
+system_info,hardware_serial,text,"The device's serial number. For ChromeOS, this is only available if the extension was force-installed by an enterprise policy"
+system_info,hardware_vendor,text,"Hardware vendor. For ChromeOS, this is only available if the extension was force-installed by an enterprise policy"
+system_info,hardware_model,text,"Hardware model. For ChromeOS, this is only available if the extension was force-installed by an enterprise policy"
+system_info,cpu_brand,text,
+system_info,cpu_type,text,
+system_info,physical_memory,text,
+macos_profiles,description,text,The description of the profile.
+macos_profiles,display_name,text,The display name of the profile.
+macos_profiles,identifier,text,The identifier of the profile.
+macos_profiles,install_date,text,Date and time at which the profile was installed.
+macos_profiles,organization,text,The profile's organization value.
+macos_profiles,type,text,The type of profile.
+macos_profiles,uuid,text,The [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) of the profile.
+macos_profiles,verification_state,text,The verification state of the profile.
+interface_details,link_speed,,
+interface_details,pci_slot,,
+interface_details,friendly_name,,
+interface_details,description,,
+interface_details,manufacturer,,
+interface_details,connection_id,,
+interface_details,connection_status,,
+interface_details,enabled,,
+interface_details,physical_adapter,,
+interface_details,speed,,
+interface_details,service,,
+interface_details,dhcp_enabled,,
+interface_details,dhcp_lease_expires,,
+interface_details,dhcp_lease_obtained,,
+interface_details,dhcp_server,,
+interface_details,dns_domain,,
+interface_details,dns_domain_suffix_search_order,,
+interface_details,dns_host_name,,
+interface_details,dns_server_search_order,,
+dns_resolvers,pid_with_namespace,,
+password_policy,policy_description,text,"Policy description, such as `Contain at least 10 characters.`"
+password_policy,policy_content,text,"Policy content, such as `policyAttributePassword matches '.{10,}'`."
+password_policy,policy_identifier,text,"Policy identifier, such as `ProfilePayload:1d33ef8c-da1c-4534-8458-95a4d43d849e:minLength`."
+password_policy,uid,bigint,User ID for the policy. Returns `-1` if the policy applies to all users.
+disk_encryption,uid,,
+disk_encryption,user_uuid,,
+disk_encryption,filevault_status,,
+user_login_settings,password_hint_enabled,integer,"whether password hint is enabled for any user. 1 means one or more users has a password hint set, 0 means no user has a password hint set"
+known_hosts,uid,,
+sntp_request,server,text,Address of the SNTP server to query.
+sntp_request,timestamp_ms,bigint,Timestamp returned by the SNTP server in milliseconds.
+sntp_request,clock_offset_ms,bigint,Offset between the host's time and the SNTP time in milliseconds.
+ioreg,c,text,List properties of objects with the given class.
+ioreg,d,text,Limit tree to the given depth.
+ioreg,k,text,List properties of objects with the given key.
+ioreg,n,text,List properties of objects with the given name.
+ioreg,p,text,Traverse registry over the given plane (IOService is default).
+ioreg,r,text,Show subtrees rooted by the given criteria.
+ioreg,key,text,A specific item that describes the returned value.
+ioreg,value,text,The value for the specified key.
+ioreg,fullkey,text,The expanded name of the specific item that describes the value.
+ioreg,parent,text,The key's parent.
+ioreg,query,text,The query is printed in this column.
+geolocation,ip,text,IP address
+geolocation,city,text,City
+geolocation,country,text,Country
+geolocation,region,text,Region
+corestorage_logical_volumes,vg_UUID,text,The unique identifier of the containing volume group
+corestorage_logical_volumes,vg_Version,integer,"The version of the volume group, probably 1"
+corestorage_logical_volumes,vg_FreeSpace,bigint,"Amount of space, in bytes, in the volume group that have not been allocated by any logical volume"
+corestorage_logical_volumes,vg_FusionDrive,integer,"Whether the volume group is a ""fusion drive"" (i.e. SSHD)"
+corestorage_logical_volumes,vg_Name,text,The customizable name of the volume group
+corestorage_logical_volumes,vg_Sequence,bigint,Current sequence number of the volume group
+corestorage_logical_volumes,vg_Size,bigint,Total (i.e. either allocated or unallocated) size of the volume group
+corestorage_logical_volumes,vg_Sparse,integer,Whether the volume group allows overcommitting storage
+corestorage_logical_volumes,vg_Status,text,"Status of the volume group, e.g. ""Online"""
+corestorage_logical_volumes,lvf_UUID,text,Unique ID of the logical volume family
+corestorage_logical_volumes,lvf_EncryptionStatus,text,"Unlock status of the logical volume family, e.g. ""Locked"" or ""Unlocked"""
+corestorage_logical_volumes,lvf_EncryptionType,text,"Encryption algorithm for the logical volume family, normally ""AES-XTS"" or ""None"""
+corestorage_logical_volumes,lvf_HasVisibleUsers,integer,Undocumented field returned from `diskutil cs info`
+corestorage_logical_volumes,lvf_HasVolumeKey,integer,Whether there is an encryption key assigned for the logical volume
+corestorage_logical_volumes,lvf_IsAcceptingNewUsers,integer,Whether new users may be granted access to the logical volume family encryption key
+corestorage_logical_volumes,lvf_IsFullySecure,integer,Undocumented field returned from `diskutil cs info`
+corestorage_logical_volumes,lvf_MayHaveEncryptedEvents,integer,Undocumented field returned from `diskutil cs info`
+corestorage_logical_volumes,lvf_RequiresPasswordUnlock,integer,Whether a password is currently required to unlock the volume
+corestorage_logical_volumes,ContentHint,text,"What type of filesystem is on the logical volume, as written in metadata, e.g. ""Apple_HFS"""
+corestorage_logical_volumes,ConverstionProgressPercent,integer,"How far the current conversion status has progressed, either empty or 0-100"
+corestorage_logical_volumes,ConversionState,text,"Status of the conversion, e.g. from HFS+ to CoreStorage or encrypting a volume"
+corestorage_logical_volumes,Name,text,Name of the logical volume
+corestorage_logical_volumes,Sequence,bigint,Sequence number of the logical volume
+corestorage_logical_volumes,Size,bigint,Size of the logical volume in bytes
+corestorage_logical_volumes,Status,text,"Lock status of the logical volume, e.g. ""Locked"""
+corestorage_logical_volumes,Version,bigint,"CoreStorage version of the logical volume, normally 65536"
+corestorage_logical_volumes,UUID,text,Unique ID of the logical volume
+corestorage_logical_volumes,DesignatedPhysicalVolume,text,UUID of one of the physical volumes on which the logical volume is stored
+corestorage_logical_volumes,DesignatedPhysicalVolumeIdentifier,text,Identifier of one of the physical volumes that holds this logical volume (e.g disk0s2)
+corestorage_logical_volumes,Identifier,text,"Current identifier of the logical volume (e.g. ""disk5"")"
+corestorage_logical_volumes,VolumeName,text,Name of the filesystem in the logical volume
+munki_installs,end_time,text,The end time of the last Munki run.
+munki_installs,installed,text,Shows if Munki installed an item (true) or if it is simply available but not installed (false).
+munki_installs,installed_version,text,The version number of installed items.
+munki_installs,name,text,The name of items managed by Munki.
+firefox_preferences,path,text,The absolute path to the host's Firefox preferences.
+firefox_preferences,key,text,A specific item that describes the path.
+firefox_preferences,value,text,The value for the specified key.
+firefox_preferences,fullkey,text,The expanded name of the specific item that describes the path.
+firefox_preferences,parent,text,The key's parent.
+firefox_preferences,query,text,"The query is printed in this column. For example the SQL `SELECT * FROM firefox_preferences WHERE path = 'testdata/prefs.js'` will print ""*"" in the query column."
+mdm_bridge,enrollment_status,text,"Contains the enrollment status of the device, possible values are ""device_enrolled"" and ""device_unenrolled""."
+mdm_bridge,enrolled_user,text,Contains the enrollment URI of the device.
+mdm_bridge,mdm_command_input,text,"The ""get"" command to execute on the device. If empty, no command is executed and the ""enrollment_status"" and ""enrolled_user"" columns are returned."
+mdm_bridge,mdm_command_output,text,"Value of the ""Results"" field of the MDM command output."
+mdm_bridge,raw_mdm_command_output,text,The full raw output of the MDM command execution.
+firmware_eficheck_integrity_check,chip,text,"Contains the chip type, values are ""apple"", ""intel-t1"" and ""intel-t2"". If chip type is ""apple"" or ""intel-t2"" then no eficheck integrity check is executed."
+firmware_eficheck_integrity_check,output,text,"Output of the `/usr/libexec/firmwarecheckers/eficheck/eficheck --integrity-check` command. This value is only valid when chip is ""intel-t1""."
+osquery_info,pid,,
+osquery_info,uuid,,
+osquery_info,instance_id,,
+osquery_info,config_hash,,
+osquery_info,config_valid,,
+osquery_info,start_time,,
+osquery_info,watcher,,
+osquery_info,platform_mask,,
+alf_exceptions,state,,Firewall [exception state](https://krypted.com/mac-security/command-line-alf-on-mac-os-x/)
+listening_ports,net_namespace,,
+time,win_timestamp,,
+filevault_users,username,text,Username of the FileVault user.
+filevault_users,uuid,text,"UUID of the FileVault user, which can be joined to [users.uuid](http://fleetdm.com/tables/users)."
+authorized_keys,pid_with_namespace,,
+authorized_keys,uid,,
+system_state,idle_state,text,"Returns ""locked"", ""idle"", or ""active""."
+firmwarepasswd,option_roms_allowed,text,Whether or not option ROMs are allowed.
+firmwarepasswd,password_enabled,text,Whether or not the host has a firmware password.
+firmwarepasswd,mode,text,Host's mode setting.
+preferences,username,,
+munki_info,console_user,text,The username of the user currently logged into the console of the Mac.
+munki_info,end_time,text,The date and time at which the latest Munki run ended.
+munki_info,errors,text,"If Munki encountered any error during the last run, they will be returned in this column."
+munki_info,manifest_name,text,The internal manifest name
+munki_info,problem_installs,text,"A list of installs that did not succeed, if any."
+munki_info,start_time,text,The date and time at which the latest Munki run started.
+munki_info,success,text,"Shows if the Munki run was a success (true), or not (false)."
+munki_info,version,text,The version of Munki used during the last run.
+munki_info,warnings,text,"If Munki encountered any error during the last run, they will be returned in this column."
+pmset,getting,text,Allows specifying a getting option when executing pmset.
+pmset,json_result,text,Result of the command in JSON format.
+npm_packages,pid_with_namespace,,
+npm_packages,mount_namespace_id,,
+authdb,right_name,text,The right_name to query in the `authorizationdb read <right_name>` command.
+authdb,json_result,text,The JSON output parsed from `authorizationdb` plist. 
+pci_devices,pci_class_id,,
+pci_devices,pci_subclass_id,,
+pci_devices,pci_subclass,,
+pci_devices,subsystem_vendor_id,,
+pci_devices,subsystem_vendor,,
+pci_devices,subsystem_model_id,,
+pci_devices,subsystem_model,,
+filevault_prk,base64_encrypted,text,The base64-encoded contents of the encrypted FileVault personal recovery key stored at `/var/db/FileVaultPRK.dat` (see also https://developer.apple.com/documentation/devicemanagement/fderecoverykeyescrow)
+processes,elevated_token,,
+processes,secure_process,,
+processes,protection_type,,
+processes,virtual_process,,
+processes,elapsed_time,,
+processes,handle_count,,
+processes,percent_processor_time,,
+processes,upid,,
+processes,uppid,,
+processes,cpu_type,,
+processes,cpu_subtype,,
+processes,translated,,
+disk_info,disk_size,bigint,Size of the disk.
+disk_info,id,text,The unique identifier of the drive on the system.
+disk_info,name,text,The label of the disk object.
+disk_info,type,text,The interface type of the disk.
+disk_info,partitions,,
+disk_info,disk_index,,
+disk_info,pnp_device_id,,
+disk_info,manufacturer,,
+disk_info,hardware_model,,
+disk_info,serial,,
+disk_info,description,,
+cryptoinfo,path,text,Path to the certificate.
+cryptoinfo,passphrase,text,The passphrase for the certificate.
+cryptoinfo,key,text,A specific item that describes the drive.
+cryptoinfo,value,text,The value for the specified key.
+cryptoinfo,fullkey,text,The expanded name of the specific item that describes the drive.
+cryptoinfo,parent,text,The key's parent.
+cryptoinfo,query,text,"The query is printed in this column. For example the SQL `SELECT * FROM cryuptsetup_status WHERE name = 'LUKS_DRIVE' will print ""*""` in the query column."
+network_interfaces,mac,text,MAC address (only available to extensions force-installed by enterprise policy)
+network_interfaces,ipv4,text,IPv4 address (only available to extensions force-installed by enterprise policy)
+network_interfaces,ipv6,text,IPv6 address (only available to extensions force-installed by enterprise policy)
+docker_volumes,name,,Volume name from `docker volume ls`
+sofa_unpatched_cves,cve,text,"The CVE identifier, like ""CVE-2024-1580"""
+sofa_unpatched_cves,patched_version,text,"The security release that patched this CVE, like ""14.4.1"""
+sofa_unpatched_cves,actively_exploited,text,"""true"" if this CVE is being actively exploited, ""false"" otherwise"
+sofa_unpatched_cves,os_version,text,"If not specified, this is the version of the operating system that the device is running"
+puppet_logs,level,text,"The level of the log item (info, error, etc)."
+puppet_logs,message,text,The log message content.
+puppet_logs,source,text,The source of the log item.
+puppet_logs,time,text,The time at which this item was logged.
+puppet_logs,file,text,The file from which osquery read this log.
+puppet_logs,line,text,The line from which this log item was read.
+fleetd_logs,time,text,"The time the event was captured, UTC."
+fleetd_logs,level,text,"The log-level of the event. Info, Debug, etc."
+fleetd_logs,error,text,The error attached to the event
+fleetd_logs,message,text,The message attached to the event
+fleetd_logs,payload,text,"Any extra data attached to the event, JSON"
+os_version,install_date,,
+os_version,pid_with_namespace,,
+os_version,mount_namespace_id,,
+macadmins_unified_log,trace_id,text,The ID of a trace event
+macadmins_unified_log,event_type,text,"The type of event, this can be logEvent, signpostEvent or stateEvent."
+macadmins_unified_log,format_string,text,The format string used to convert variable content into a string for output.
+macadmins_unified_log,activity_identifier,int,The identifier of the log activity.
+macadmins_unified_log,subsystem,text,The subsystem responsible for this activity.
+macadmins_unified_log,category,text,The category of the log activity.
+macadmins_unified_log,thread_id,bigint,The ID of the thread that originated the event.
+macadmins_unified_log,sender_image_uuid,text,"The UUID of the library, framework, kernel extension, or mach-o image, that originated the event."
+macadmins_unified_log,sender_image_path,text,"The full path of the library, framework, kernel extension, or mach-o image, that originated the event."
+macadmins_unified_log,boot_uuid,text,The boot UUID of the event.
+macadmins_unified_log,process_id,bigint,"Process ID of the process that generated this log item, which can be joined to multiple other tables including a *PID*."
+macadmins_unified_log,process_image_path,text,The full path of the process that originated the event.
+macadmins_unified_log,timestamp,bigint,Timestamp in [UNIX time format](https://en.wikipedia.org/wiki/Unix_time).
+macadmins_unified_log,event_message,text,The message of the log entry.
+macadmins_unified_log,sender_program_counter,uint,"The program counter of the library, framework, kernel extension, or mach-o image, that originated the event."
+macadmins_unified_log,parent_activity_identifier,uint,ID of the parent activity
+macadmins_unified_log,log_level,text,"The log level of this item, such as `default`, `info`, `fault`, etc."
+process_events,status,,
+process_events,fsuid,,
+process_events,suid,,
+process_events,fsgid,,
+process_events,sgid,,
+process_events,syscall,,
+users,gid,,
+users,uid_signed,,
+users,gid_signed,,
+users,description,,
+users,directory,,
+users,shell,,
+users,uuid,,
+users,email,text,Email
+users,type,,
+users,is_hidden,,
+users,pid_with_namespace,,
+users,username,,Username
+logged_in_users,sid,,
+logged_in_users,registry_hive,,
