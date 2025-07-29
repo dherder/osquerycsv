@@ -1,0 +1,32 @@
+name: Export Osquery Table Schema to CSV
+
+on:
+  workflow_dispatch:
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Clone Osquery Schema
+        run: |
+          git clone --depth 1 https://github.com/osquery/osquery.git
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Converter
+        run: python convert.py
+
+      - name: Upload CSV Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: osquery-schema-csv
+          path: schema/osquery_schema.csv
