@@ -2,7 +2,7 @@ import os
 import yaml
 import csv
 
-INPUT_DIR = "osquery-table-schema/tables"
+INPUT_DIR ="fleet/schema/tables"
 OUTPUT_DIR = "schema"
 OUTPUT_CSV = os.path.join(OUTPUT_DIR, "fleet_osquery_schema.csv")
 
