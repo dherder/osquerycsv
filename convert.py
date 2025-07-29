@@ -14,7 +14,7 @@ if not os.path.isdir(INPUT_DIR):
     print(f"❌ ERROR: Directory '{INPUT_DIR}' does not exist.")
     exit(1)
 
-yaml_files = [f for f in os.listdir(INPUT_DIR) if f.endswith(".yaml")]
+yaml_files = [f for f in os.listdir(INPUT_DIR) if f.endswith(".yml")]
 print(f"📄 Found {len(yaml_files)} YAML files.")
 
 if not yaml_files:
