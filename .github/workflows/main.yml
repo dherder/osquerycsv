@@ -1,35 +1,32 @@
-name: Export Osquery Schema
+name: Export Osquery Table Schema to CSV
 
 on:
-  schedule:
-    - cron: '0 6 * * 1'    # Runs every Monday at 06:00 UTC
-  workflow_dispatch:      # Allows manual triggering
-permissions:
-  contents: write
+  workflow_dispatch:
+
 jobs:
-  export-schema:
+  convert:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
 
-    - name: Install dependencies
-      run: pip install pyyaml
+      - name: Clone Osquery Schema
+        run: |
+          git clone --depth 1 https://github.com/osquery/osquery.git
 
-    - name: Clone fleet repo
-      run: git clone --depth 1 https://github.com/fleetdm/fleet.git
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    - name: Debug list YAML files
-      run: ls -l fleet/schema/tables
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
 
-    - name: Generate CSV schema
-      run: python convert.py
+      - name: Run Converter
+        run: python convert.py
 
-    - name: Commit & push updates
-      run: |
-        git config user.name "github-actions"
-        git config user.email "github-actions@github.com"
-        git add schema/fleet_osquery_schema.csv
-        git commit -m "Update osquery schema (auto)" || echo "No changes"
-        git push
+      - name: Upload CSV Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: osquery-schema-csv
+          path: schema/osquery_schema.csv

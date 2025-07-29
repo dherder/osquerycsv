@@ -1,55 +1,30 @@
 import os
-import yaml
 import csv
+import yaml
 
-INPUT_DIR = "fleet/schema/tables"
+INPUT_DIR = "osquery/specs"
 OUTPUT_DIR = "schema"
-OUTPUT_CSV = os.path.join(OUTPUT_DIR, "fleet_osquery_schema.csv")
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "osquery_schema.csv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-print(f"🔍 Reading osquery schema files from: {INPUT_DIR}")
+with open(OUTPUT_FILE, mode="w", newline="") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(["table_name", "column_name", "type", "description"])
 
-if not os.path.isdir(INPUT_DIR):
-    print(f"❌ ERROR: Directory '{INPUT_DIR}' does not exist.")
-    exit(1)
-
-yaml_files = [f for f in os.listdir(INPUT_DIR) if f.endswith(".yml")]
-print(f"📄 Found {len(yaml_files)} YAML files.")
-
-if not yaml_files:
-    print("⚠️  No YAML files found. Exiting.")
-    exit(0)
-
-rows_written = 0
-
-with open(OUTPUT_CSV, "w", newline="") as out_csv:
-    writer = csv.writer(out_csv)
-    writer.writerow(["table_name", "column_name", "datatype", "description"])
-
-    for fname in yaml_files:
-        path = os.path.join(INPUT_DIR, fname)
-        try:
-            with open(path, "r") as f:
+    for filename in os.listdir(INPUT_DIR):
+        if filename.endswith(".table"):
+            filepath = os.path.join(INPUT_DIR, filename)
+            with open(filepath, "r") as f:
                 table = yaml.safe_load(f)
-        except Exception as e:
-            print(f"❌ Failed to parse {fname}: {e}")
-            continue
 
-        table_name = table.get("name", os.path.splitext(fname)[0])
-        columns = table.get("columns", [])
+            table_name = table.get("name", os.path.splitext(filename)[0])
+            for column in table.get("columns", []):
+                writer.writerow([
+                    table_name,
+                    column.get("name", ""),
+                    column.get("type", ""),
+                    column.get("description", "").replace("\n", " ")
+                ])
 
-        if not columns:
-            print(f"⚠️  Skipping table '{table_name}' — no columns defined.")
-            continue
-
-        for col in columns:
-            writer.writerow([
-                table_name,
-                col.get("name", ""),
-                col.get("type", ""),
-                (col.get("description") or "").replace("\n", " ")
-            ])
-            rows_written += 1
-
-print(f"✅ Done! Wrote {rows_written} rows to {OUTPUT_CSV}")
+print(f"Exported to {OUTPUT_FILE}")
