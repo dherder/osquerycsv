@@ -20,6 +20,9 @@ jobs:
     - name: Clone fleet repo
       run: git clone --depth 1 https://github.com/fleetdm/fleet.git
 
+    - name: Debug list YAML files
+      run: ls -l fleet/schema/tables
+
     - name: Generate CSV schema
       run: python convert.py
 
